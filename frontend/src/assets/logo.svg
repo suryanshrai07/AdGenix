@@ -1,0 +1,17 @@
+<svg width="300" height="60" viewBox="0 0 300 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="adgenix-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#0066FF" />
+            <stop offset="100%" style="stop-color:#FF3300" />
+        </linearGradient>
+    </defs>
+    <path d="M42.5 10L15 50H27.5L35 37.5H50L57.5 50H70L42.5 10Z" fill="url(#adgenix-gradient)"/>
+    <path d="M35 37.5L42.5 25L50 37.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="42.5" cy="18" r="3" fill="#FFFFFF"/>
+    <circle cx="38.75" cy="25" r="2" fill="#FFFFFF"/>
+    <circle cx="46.25" cy="25" r="2" fill="#FFFFFF"/>
+    
+    <text x="85" y="42" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="34" fill="#333333">
+        <tspan font-weight="800">Ad</tspan><tspan font-weight="400">Genix</tspan>
+    </text>
+</svg>
