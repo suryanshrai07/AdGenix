@@ -1,5 +1,6 @@
 import { footerLinks } from '../assets/dummy-data';
 import { motion } from 'framer-motion';
+import logo from "../assets/logo.svg";
 
 export default function Footer() {
 
@@ -13,9 +14,9 @@ export default function Footer() {
             <div className="max-w-6xl mx-auto px-6">
                 <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-white/10">
                     <div>
-                        <img src='/logo.svg' alt="logo" className="h-8" />
+                        <img src={logo} alt="logo" className="h-8" />
                         <p className="max-w-[410px] mt-6 text-sm leading-relaxed">
-                            We are a digital agency focused on strategy, design and development—helping brands build meaningful digital experiences and grow sustainably.
+                            Create viral ADS in seconds. Upload product images and a model photo — our AI instantly produces professional lifestyle imagery and short-form videos.
                         </p>
                     </div>
 
@@ -31,6 +32,7 @@ export default function Footer() {
                                             <li key={i}>
                                                 <a
                                                     href={link.url}
+                                                    target='_blank'
                                                     className="hover:text-white transition"
                                                 >
                                                     {link.name}
@@ -43,14 +45,6 @@ export default function Footer() {
                         ))}
                     </div>
                 </div>
-
-                <p className="py-4 text-center text-sm text-gray-400">
-                    © {new Date().getFullYear()} {' '}
-                    <a href="https://prebuiltui.com/tailwind-templates?ref=pixel-forge">
-                        PrebuiltUI
-                    </a>
-                    . All rights reserved.
-                </p>
             </div>
         </motion.footer>
     );

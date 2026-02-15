@@ -89,12 +89,12 @@ export const faqData = [
 
 export const footerLinks = [
   {
-    title: "Company",
+    title: "Quick Links",
     links: [
       { name: "Home", url: "#" },
-      { name: "Services", url: "#" },
-      { name: "Work", url: "#" },
-      { name: "Contact", url: "#" },
+      { name: "Features", url: "#features" },
+      { name: "Pricing", url: "#pricing" },
+      { name: "FAQ", url: "#faq" },
     ],
   },
   {
@@ -107,9 +107,9 @@ export const footerLinks = [
   {
     title: "Connect",
     links: [
-      { name: "Twitter", url: "#" },
-      { name: "LinkedIn", url: "#" },
-      { name: "GitHub", url: "#" },
+      { name: "Twitter", url: "https://x.com/suryanshrai07" },
+      { name: "LinkedIn", url: "https://www.linkedin.com/in/suryanshrai07/" },
+      { name: "GitHub", url: "https://github.com/suryanshrai07/AdGenix" },
     ],
   },
 ];
