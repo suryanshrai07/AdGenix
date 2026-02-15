@@ -1,6 +1,7 @@
 import { ArrowRightIcon, PlayIcon, ZapIcon, CheckIcon } from "lucide-react";
 import { PrimaryButton, GhostButton } from "./Buttons";
 import { motion } from "framer-motion";
+import mainImage from "../assets/product1.jpg";
 
 export default function Hero() {
   const trustedUserImages = [
@@ -9,9 +10,8 @@ export default function Hero() {
     "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop",
   ];
 
-  const mainImageUrl =
-    "https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?q=80&w=1600&auto=format&fit=crop";
-
+  const mainImageUrl = mainImage;
+  
   const galleryStripImages = [
     "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=100",
     "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=100",
@@ -19,11 +19,11 @@ export default function Hero() {
   ];
 
   const trustedLogosText = [
-    "Startups",
-    "Scale-ups",
-    "Founders",
-    "Global teams",
-    "Creative brands",
+    "Adobe",
+    "Figma",
+    "Canva",
+    "Shopify",
+    "Webflow",
   ];
 
   return (
