@@ -146,6 +146,7 @@ const Generator = () => {
             ) : (
               <>
               <Wand2Icon className="size-5" />
+              Generate Image
               </>
             )}
           </PrimaryButton>
