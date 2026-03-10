@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import type { Project } from "../types";
 import { dummyGenerations } from "../assets/assets";
 import { Loader2Icon } from "lucide-react";
-import { div } from "framer-motion/client";
 import ProjectCard from "../components/ProjectCard";
 
 const Community = () => {
@@ -19,6 +18,7 @@ const Community = () => {
   useEffect(() => {
     fetchProjects();
   }, []);
+  
   return loading ? 
   (
     <div className="flex items-center justify-center min-h-screen">
