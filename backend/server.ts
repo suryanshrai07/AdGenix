@@ -5,6 +5,7 @@ import 'dotenv/config';
 import { clerkMiddleware } from '@clerk/express';
 import clerkWebhooks from './controllers/clerk.js';
 import * as Sentry from "@sentry/node";
+import userRouter from "./routes/userRoutes.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
