@@ -6,10 +6,10 @@ const clerkWebhooks = async (req: Request, res: Response) => {
     try {
         const evt = await verifyWebhook(req);
 
-        const {data , type} = evt;
-
-        switch (type) {
+        switch (evt.type) {
             case "user.created": {
+                const data = evt.data;
+
                 await prisma.user.create({
                     data : {
                         id : data.id,
@@ -21,7 +21,9 @@ const clerkWebhooks = async (req: Request, res: Response) => {
                 break;
             }
             case "user.updated": {
-                await prisma.user.update({
+                const data = evt.data;
+                if (!data.id) break;
+                await prisma.user.updateMany({
                     where : {
                         id : data.id
                     },
@@ -34,7 +36,9 @@ const clerkWebhooks = async (req: Request, res: Response) => {
                 break;
             }
             case "user.deleted": {
-                await prisma.user.delete({
+                const data = evt.data;
+                if (!data.id) break;
+                await prisma.user.deleteMany({
                     where : {
                         id : data.id
                     }
@@ -43,6 +47,7 @@ const clerkWebhooks = async (req: Request, res: Response) => {
             }
 
             case "paymentAttempt.updated": {
+                const data = evt.data;
                 if((data.charge_type === "recurring" || data.charge_type === "checkout") && data.status === "paid"){
                     const credits = {
                         pro : 80,
@@ -52,6 +57,8 @@ const clerkWebhooks = async (req: Request, res: Response) => {
                     const clerkUserId = data?.payer?.user_id;
                     const planId = data?.subscription_items?.[0]?.plan?.slug;
 
+                    if (!clerkUserId) break;
+                    
                     if(planId !== "pro" && planId !== "premium"){
                         return res.status(400).json({message : "Invalid plan"});
                     } 
@@ -77,7 +84,7 @@ const clerkWebhooks = async (req: Request, res: Response) => {
                 break;
         }
 
-        return res.json({message : "Webhook received : " + type});
+        return res.json({message : "Webhook received : " + evt.type});
     } catch (error) {
         console.error("Error processing webhook:", error);
         return res.status(500).json({message : "Internal server error"});
