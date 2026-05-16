@@ -1,6 +1,7 @@
 import { Request, Response } from "express"
 import { verifyWebhook } from '@clerk/express/webhooks'
 import {prisma} from "../configs/prisma.js";
+import * as Sentry from "@sentry/node";
 
 const clerkWebhooks = async (req: Request, res: Response) => {
     try {
@@ -58,7 +59,7 @@ const clerkWebhooks = async (req: Request, res: Response) => {
                     const planId = data?.subscription_items?.[0]?.plan?.slug;
 
                     if (!clerkUserId) break;
-                    
+
                     if(planId !== "pro" && planId !== "premium"){
                         return res.status(400).json({message : "Invalid plan"});
                     } 
@@ -87,6 +88,7 @@ const clerkWebhooks = async (req: Request, res: Response) => {
         return res.json({message : "Webhook received : " + evt.type});
     } catch (error) {
         console.error("Error processing webhook:", error);
+        Sentry.captureException(error);
         return res.status(500).json({message : "Internal server error"});
     }
 }
