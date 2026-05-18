@@ -10,10 +10,12 @@ import MyGeneration from './pages/MyGeneration';
 import Community from './pages/Community';
 import Plans from './pages/Plans';
 import Loading from './pages/Loading';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
 	return (
 		<>
+
 			<SoftBackdrop />
 			<LenisScroll />
 			<Navbar />
@@ -27,7 +29,7 @@ function App() {
 				<Route path="/plans" element={<Plans/>} />
 				<Route path="/loading" element={<Loading/>} />
 			</Routes>
-			
+			<Toaster toastOptions={{ style :{ background : "#333",color : "#fff" } }} />
 			<Footer />
 		</>
 	);
